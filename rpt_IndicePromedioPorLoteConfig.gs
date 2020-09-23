@@ -42,6 +42,7 @@ indicesPromedioPorLoteConfig.imagesSizes = {
 indicesPromedioPorLoteConfig.strLang = [];
 indicesPromedioPorLoteConfig.strLang['EN'] = [];
 indicesPromedioPorLoteConfig.strLang['ES'] = [];
+indicesPromedioPorLoteConfig.strLang['PT'] = [];
 indicesPromedioPorLoteConfig.strLang['ES'] = [
   ['{strF0}', 'Índices Promedio por Lote'],
   ['{strF1}', 'Fecha Informe'],
@@ -52,7 +53,7 @@ indicesPromedioPorLoteConfig.strLang['ES'] = [
   ['{strF6}', 'Información Cultivos'],
   ['{strF7}', 'Lote'],
   ['{strF8}', 'Cultivo'],
-  ['{strF9}', 'Superficie [Has]'],
+  ['{strF9}', 'Superfície [Has]'],
   ['{strF10}', 'Fecha de Siembra'],
   ['{strF11}', 'Hib/Var'],
   ['{strF12}', 'Fecha'],
@@ -80,6 +81,25 @@ indicesPromedioPorLoteConfig.strLang['EN'] = [
   ['{strF15}', 'Average and Variability by Field'],
   ['{strF16}', 'Averages:']
 ];
+indicesPromedioPorLoteConfig.strLang['PT'] = [
+  ['{strF0}', 'Índices Média e Variabilidade por Lote'],
+  ['{strF1}', 'Data de relatório'],
+  ['{strF2}', 'Lotes e Cultivos'],
+  ['{strF3}', 'Campanha'],
+  ['{strF4}', 'Estabelecimento'],
+  ['{strF5}', 'Total Has'],
+  ['{strF6}', 'Informação Cultivos'],
+  ['{strF7}', 'Lote'],
+  ['{strF8}', 'Cultivo'],
+  ['{strF9}', 'Superfície [Has]'],
+  ['{strF10}', 'Data de plantio'],
+  ['{strF11}', 'Hib/Var'],
+  ['{strF12}', 'Data da imagem'],
+  ['{strF13}', 'Mean'],
+  ['{strF14}', 'Desvio padrão'],
+  ['{strF15}', 'Média e Variabilidade por Lote'],
+  ['{strF16}', 'Médias:']
+];
 
 indicesPromedioPorLoteConfig.hardcodedData =
 {
@@ -87,7 +107,7 @@ indicesPromedioPorLoteConfig.hardcodedData =
   "InformDate": "2019/07/21/ 00:00:00",
   "InformDataDate": "2018-01-18",
   "Season": "2018-19",
-  "Language": "EN",
+  "Language": "PT",
   "Title": "Renhardt bdy Peas F20",
   "TotalHas": "163.73",
   "Images": {

@@ -20,9 +20,9 @@ function build_TasaDeCambioDinamica(InputJson, debugMode) {
   var lang = inputData.Language;
 
   var docName = inputData.Title
-  if (lang.toLowerCase() == "es")
+  if (lang.toLowerCase() == "es" || lang.toLowerCase() == "pt")
     docName += " Lote " + inputData.Field;
-  else
+  else 
     docName += " Field " + inputData.Field;
 
   var docFileID = createFile(docName, tasaCambioDinamicaConfig.objSet.strDestFolder, tasaCambioDinamicaConfig.objSet.strTemplateID);

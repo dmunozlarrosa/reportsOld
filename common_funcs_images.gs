@@ -13,7 +13,7 @@ function setHeaderImage(language, document) {
   paragraph.setSpacingBefore(0);
   paragraph.setAttributes(style);
 
-  if (language == 'ES' || language == 'es' || language == 'Es' || language == 'eS')
+  if (language.toUpperCase() == 'ES' || language.toUpperCase() == 'PT')
     var blob = DriveApp.getFileById(commonConfig.headerLogo['ES']).getBlob()
   else
     var blob = DriveApp.getFileById(commonConfig.headerLogo['EN']).getBlob()

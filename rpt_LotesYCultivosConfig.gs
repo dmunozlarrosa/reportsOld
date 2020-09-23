@@ -17,6 +17,7 @@ lotesYCultivosConfig.objSet = {
 lotesYCultivosConfig.strLang = [];
 lotesYCultivosConfig.strLang['EN'] = [];
 lotesYCultivosConfig.strLang['ES'] = [];
+lotesYCultivosConfig.strLang['PT'] = [];
 lotesYCultivosConfig.strLang['ES'] = [
     ['{strF0}', 'Informe Lotes y Cultivos'],
     ['{strF1}', 'Fecha Informe'],
@@ -40,18 +41,36 @@ lotesYCultivosConfig.strLang['EN'] = [
     ['{strF1}', 'Report Date'],
     ['{strF2}', 'Fields and Crops Map'],
     ['{strF3}', 'Ref'],
-    ['{strF4}', 'Campaign'],
+    ['{strF4}', 'Season'],
     ['{strF5}', 'Farm'],
     ['{strF6}', 'Total Has'],
     ['{strF7}', 'Total'],
     ['{strF8}', 'Information Crops'],
-    ['{strF9}', 'Lot'],
-    ['{strF10}', 'Farming'],
+    ['{strF9}', 'Field'],
+    ['{strF10}', 'Crop'],
     ['{strF11}', 'Surface [Has]'],
     ['{strF12}', 'Planting Date'],
     ['{strF13}', 'Hib / Var'],
     ['{strF14}', 'Crop Area [Has] and %'],
     ['{strF15}', 'Comments']
+];
+lotesYCultivosConfig.strLang['PT'] = [
+    ['{strF0}', 'Relatórios Lotes e Cultivos'],
+    ['{strF1}', 'Data de relatório'],
+    ['{strF2}', 'Mapa de Lotes e Cultivos'],
+    ['{strF3}', 'Ref'],
+    ['{strF4}', 'Campanha'],
+    ['{strF5}', 'Estabelecimento'],
+    ['{strF6}', 'Total Has'],
+    ['{strF7}', 'Total'],
+    ['{strF8}', 'Informação Cultivos'],
+    ['{strF9}', 'Lote'],
+    ['{strF10}', 'Cultivo'],
+    ['{strF11}', 'Superfície [Has]'],
+    ['{strF12}', 'Data de plantio'],
+    ['{strF13}', 'Hib / Var'],
+    ['{strF14}', 'Porcentagem e área [Has] de cultivo'],
+    ['{strF15}', 'Comentários']
 ];
 
 lotesYCultivosConfig.imagesSizes = {
@@ -86,7 +105,7 @@ lotesYCultivosConfig.hardcodedData = {
     InformDate: "28/05/2019",       //en input_json
     Season: "2018-19",
     TotalHas: "4214.71",            //obtener gdocs
-    Language: "ES",
+    Language: "PT",
     Title: "Lotes y Cultivos - La Martona", //generado en gdocs
     sheetPosition: "horizontal",
     image_lotesYCultivos: "https://assets.website-files.com/5ac4a12d0012b03ba378019d/5c13786fae722d45b59dc077_New-N-Sensor.jpg",
@@ -146,7 +165,7 @@ lotesYCultivosConfig.hardcodedData1 = {
     "InformDate": "28/05/2019",       //en input_json
     "Season": "2018-19",
     "TotalHas": "4214.71",            //obtener gdocs
-    "Language": "ES",
+    "Language": "PT",
     "Title": "Lotes y Cultivos - La Martona", //generado en gdocs
     "sheetPosition": "horizontal",
     "image_lotesYCultivos": "https://assets.website-files.com/5ac4a12d0012b03ba378019d/5c13786fae722d45b59dc077_New-N-Sensor.jpg",
@@ -205,7 +224,7 @@ lotesYCultivosConfig.hardcodedData2 = {
     "Farm": "La Martona",
     "InformDate": "2019-03-01",
     "Season": "2018-2019",
-    "Language": "ES",
+    "Language": "PT",
     "Title": "Lotes y Cultivos - La Martona",
     "sheetPosition": "vertical",
     "image_lotesYCultivos": " - ",

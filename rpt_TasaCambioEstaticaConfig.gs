@@ -59,44 +59,28 @@ RangesColorsTasaCambio: [
   { Class: 14, 'Lower Limit': null, 'Upper limit': -0.03, Hexa: 'A22F3D' }
 ],
 'Report Labels': [
-  { Number: 1, Label_ES: 'Fecha Reporte', Label_EN: 'Report Date' },
-  {
-    Number: 2,
-    Label_ES: 'Tasa de Cambio Diaria',
-    Label_EN: 'Daily Change Rate'
-  },
-  {
-    Number: 3,
-    Label_ES:
-      "La tasa de cambio expresa la variación diaria de cambio en porcentajes, variando entre -3% y + 3%'",
-    Label_EN:
-      'The change rate indicates the daily variation of the percentage changes, ranging between -3% and + 3%'
-  },
-  { Number: 4, Label_ES: 'Campaña', Label_EN: 'Season' },
-  { Number: 5, Label_ES: 'Establecimiento', Label_EN: 'Farm' },
-  { Number: 6, Label_ES: 'Lote', Label_EN: 'Field' },
-  { Number: 7, Label_ES: 'Cultivo', Label_EN: 'Crop' },
-  { Number: 8, Label_ES: 'Hibrido', Label_EN: 'Hybrid' },
-  { Number: 9, Label_ES: 'Fecha de Siembra', Label_EN: 'Planting date' },
-  {
-    Number: 10,
-    Label_ES: 'Días Después de Siembra',
-    Label_EN: 'Days After Seeding'
-  },
-  {
-    Number: 11,
+  { Number: 1,  Label_ES: 'Fecha Reporte'          , Label_EN: 'Report Date'       , Label_PT : 'Data de relatório'},
+  { Number: 2,  Label_ES: 'Tasa de Cambio Diaria'  , Label_EN: 'Daily Change Rate' , Label_PT : 'Taxa de Câmbio Diária'},
+  { Number: 3, 
+    Label_ES: "La tasa de cambio expresa la variación diaria de cambio en porcentajes, variando entre -3% y + 3%'",
+    Label_EN: "The change rate indicates the daily variation of the percentage changes, ranging between -3% and + 3%",
+    Label_PT: "A taxa de câmbio expressa a variação de mudanças nas porcentagens, variando entre -3% e  + 3%"  },
+  { Number: 4,  Label_ES: 'Campaña'                , Label_EN: 'Season'            , Label_PT:  'Campanha'},
+  { Number: 5,  Label_ES: 'Establecimiento'        , Label_EN: 'Farm'              , Label_PT:  'Estabelecimento'},
+  { Number: 6,  Label_ES: 'Lote'                   , Label_EN: 'Field'             , Label_PT:  'Lote'},
+  { Number: 7,  Label_ES: 'Cultivo'                , Label_EN: 'Crop'              , Label_PT:  'Cultivo'},
+  { Number: 8,  Label_ES: 'Híbrido'                , Label_EN: 'Hybrid'            , Label_PT:  'Híbrido'},
+  { Number: 9,  Label_ES: 'Fecha de Siembra'       , Label_EN: 'Planting date'     , Label_PT:  'Data de plantio'},
+  { Number: 10, Label_ES: 'Días Después de Siembra', Label_EN: 'Days After Seeding', Label_PT:  'Dias posteriores ao Plantio'},
+  { Number: 11,
     Label_ES: 'Distribucion de Areas según Tasa de Cambio',
-    Label_EN: 'Areas distribution according to Change rate'
-  },
-  {
-    Number: 12,
-    Label_ES: 'Tasa de cambio diario',
-    Label_EN: 'Daily Change Rate'
-  },
-  { Number: 13, Label_ES: 'Hectareas', Label_EN: 'Hectares' },
-  { Number: 14, Label_ES: '% Area Total', Label_EN: '% Total area' },
-  { Number: 15, Label_ES: 'Total Has', Label_EN: 'Total Has' },
-  { Number: 16, Label_ES: 'Comentarios', Label_EN: 'Comments' }
+    Label_EN: 'Areas distribution according to Change rate',
+    Label_PT: 'Distribuição de áreas segundo a Taxa de câmbio' },
+  { Number: 12, Label_ES: 'Tasa de cambio diario'  , Label_EN: 'Daily Change Rate' , Label_PT:  'Taxa de câmbio diária'},
+  { Number: 13, Label_ES: 'Hectareas'              , Label_EN: 'Hectares'          , Label_PT:  'Hectares'},
+  { Number: 14, Label_ES: '% Área Total'           , Label_EN: '% Total area'      , Label_PT:  '% Área Total'},
+  { Number: 15, Label_ES: 'Total Has'              , Label_EN: 'Total Has'         , Label_PT:  'Total Has'},
+  { Number: 16, Label_ES: 'Comentarios'            , Label_EN: 'Comments'          , Label_PT:  'Comentarios'}
 ]
 }
 
@@ -114,7 +98,7 @@ input: {
   DatePlanting: '2019-11-19',
   Mbtiles: false,
   FieldBackgroundImage: 'lote_imagen_fondo',
-  Language: 'EN',
+  Language: 'PT',
   DateNDVI1: '2019-12-19',
   DateNDVI2: '2019-12-24'
 },

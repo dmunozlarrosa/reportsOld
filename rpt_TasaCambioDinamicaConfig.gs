@@ -38,7 +38,7 @@ tasaCambioDinamicaConfig.strLang['ES'] = [
   ['{strF9}', "Fecha de Siembra"],
   ['{strF10}', "Días Después de Siembra"],
   ['{strF11}', "Distribución de Areas según Tasa de Cambio"],
-  ['{strF12}', "Tasa de cambio diario"],
+  ['{strF12}', "Tasa de cambio diaria"],
   ['{strF13}', "Hectareas"],
   ['{strF14}', "Area Total"],
   ['{strF15}', "Total Has"],
@@ -82,6 +82,34 @@ tasaCambioDinamicaConfig.strLang['EN'] = [
   ['{strF25}', "Average:"],
   ['{strF26}', "Affected area"]
 ];
+tasaCambioDinamicaConfig.strLang['PT'] = [
+  ['{strF1}', "Data de relatório"],
+  ['{strF2}', "Taxa de Câmbio Diária"],
+  ['{strF3}', "A taxa de câmbio expressa a variação de mudanças nas porcentagens, variando entre {paletteMin}% e  + {paletteMax}%"],
+  ['{strF4}', "Campanha"],
+  ['{strF5}', "Estabelecimento"],
+  ['{strF6}', "Lote"],
+  ['{strF7}', "Cultivo"],
+  ['{strF8}', "Híbrido"],
+  ['{strF9}', "Data de plantio"],
+  ['{strF10}', "Dias posteriores ao Plantio"],
+  ['{strF11}', "Distribuição de áreas segundo a Taxa de câmbio"],
+  ['{strF12}', "Taxa de câmbio diária"],
+  ['{strF13}', "Hectares"],
+  ['{strF14}', "Área Total"],
+  ['{strF15}', "Total Has"],
+  ['{strF16}', "Comentarios"],
+  ['{strF17}', "Não disponível"],
+  ['{strF18}', "días"],
+  ['{strF19}', "a"],
+  ['{strF20}', "de"],
+  ['{strF21}', "Variação {Index} (rangos)"],
+  ['{strF22}', "Variação {Index}"],
+  ['{strF23}', "Distribuição de áreas segundo variação de {Index}"],
+  ['{strF24}', "A variação de índices indica a diferença de {Index} nas duas datas selecionadas"],
+  ['{strF25}', "Média"],
+  ['{strF26}', "Área afetada"]
+]
 
 
 tasaCambioDinamicaConfig.hardcodedData2 = {
@@ -93,7 +121,7 @@ tasaCambioDinamicaConfig.hardcodedData2 = {
   "DatePlanting": "2018-10-01",
   "Field": "Field (8)",
   "FieldBackgroundImage": "T",
-  "Language": "ES",
+  "Language": "PT",
   "IndexMean_1" : "0.22",
   "IndexMean_2" : "0.31",
   "Index": "ndvi",
@@ -133,7 +161,7 @@ tasaCambioDinamicaConfig.hardcodedData3 = {
   "DatePlanting": "2018-11-04",
   "Field": "40",
   "FieldBackgroundImage": "lote_imagen_fondo",
-  "Language": "EN",
+  "Language": "PT",
   "IndexMean_1" : "0.22",
   "IndexMean_2" : "0.31",
   "Index": "NDVI",

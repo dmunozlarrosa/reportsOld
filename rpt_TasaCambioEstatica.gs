@@ -24,16 +24,17 @@ function build_TasaDeCambio(InputJson, OutputJson, debugMode) {
   }
   var standardD = config.standardsJson;
   
-  var language = 'English';
-  var isEnglish = true;
-  if (!(inputD.Language) || inputD.Language == 'ES') {
-    language = 'Spanish';
-    isEnglish = false;
-  }
+  var lang = 'EN';
+  if (!(inputD.Language) || inputD.Language.toUpperCase() == 'ES') {
+    lang = 'ES';
+  } 
+  if (!(inputD.Language) || inputD.Language.toUpperCase() == 'PT') {
+    lang = 'PT';
+  } 
   
-  if (isEnglish)
+  if (lang === 'EN')
     var docName = inputD.Title + " - Field " + inputD.Field;
-  else
+  else 
     var docName = inputD.Title + " - Lote " + inputD.Field;
   
   var docFileID = createFile(docName, config.objSet.strDestFolder, config.objSet.strTemplateID);
@@ -49,17 +50,23 @@ function build_TasaDeCambio(InputJson, OutputJson, debugMode) {
   body.replaceText('{dateStamp}', getStandardizedDateFormat(Utilities.formatDate(new Date(), "GMT+1", "yyyy/MM/dd")));
   body.replaceText('{FechaNDVI1}', " - " + getStandardizedDateFormat(inputD.DateNDVI1));
   body.replaceText('{FechaNDVI2}', " - " + getStandardizedDateFormat(inputD.DateNDVI2));
-  if (isEnglish) {	
+  if (lang ===  'EN') {	
     var titleF = inputD.Title + ' - Field ' + inputD.Field;
     body.replaceText('{Titulo}', '' + titleF);
     for (var i = 0; i < config.objSet.arrTranslation.length; i++) {
       body.replaceText(config.objSet.arrTranslation[i], standardD['Report Labels'][i].Label_EN);
     }
-  } else {
+  } else if (lang ===  'ES') {	
     var titleF = inputD.Title + ' - Lote ' + inputD.Field;
     body.replaceText('{Titulo}', '' + titleF);
     for (var i = 0; i < config.objSet.arrTranslation.length; i++) {
       body.replaceText(config.objSet.arrTranslation[i], standardD['Report Labels'][i].Label_ES);
+    }
+  } else if (lang ===  'PT') {	
+    var titleF = inputD.Title + ' - Lote ' + inputD.Field;
+    body.replaceText('{Titulo}', '' + titleF);
+    for (var i = 0; i < config.objSet.arrTranslation.length; i++) {
+      body.replaceText(config.objSet.arrTranslation[i], standardD['Report Labels'][i].Label_PT);
     }
   }
   
@@ -72,19 +79,22 @@ function build_TasaDeCambio(InputJson, OutputJson, debugMode) {
   var fs = inputD.DatePlanting
   var noD = '';
   if (fs == null || fs == '') {
-    if (isEnglish) {
-      fs = 'Not available';
-      noD = 'Not available';
-    } else {
+    if (lang === 'PT') {
+      fs = 'Não disponível';
+      noD = 'Não disponível';
+    } else if (lang === 'EN') {
       fs = 'No disponible';
       noD = 'No disponible';
+    } else {
+      fs = 'Not available';
+      noD = 'Not available'
     }
   } else {
     var daysB = getDaysDiference(inputD.DatePlanting, inputD.DateNDVI2)
-    if (isEnglish) {
+    if (lang === "PT" || lang === "ES") {
       noD = '' + daysB + ' days';
     } else {
-      noD = '' + daysB + ' días ';
+      noD = '' + daysB + ' días ';  
     }
   }
   
@@ -110,12 +120,12 @@ function build_TasaDeCambio(InputJson, OutputJson, debugMode) {
         var lL = standardD.RangesColorsTasaCambio[j]['Lower Limit'];
         var uL = standardD.RangesColorsTasaCambio[j]['Upper limit'];
         
-        if (isEnglish) {
-          var strTo = 'to';
-          var strFrom = 'from';
-        } else {
+        if (lang === "PT" || lang === "ES") {
           var strTo = 'a';
           var strFrom = 'de';
+        } else {
+          var strTo = 'to';
+          var strFrom = 'from';
         }
         
         if (lL == null || lL == "") {

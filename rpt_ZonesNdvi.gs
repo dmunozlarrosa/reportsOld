@@ -9,7 +9,7 @@ function test_build_ZonesNDVI() {
 //    zonesConfig.hardcodedData = Zones_hardcodedData_Test
 //    zonesConfig.hardcodedData = hardcodedData_ZonasRangos
     //zonesConfig.hardcodedData = hardcodedData_ZonasQuantiles  //falta definir
-    //zonesConfig.hardcodedData = hardcodedData_ZonasClusters;
+//zonesConfig.hardcodedData = hardcodedData_ZonasClusters;
     build_ZonesNDVI(Zones_hardcodedData_Test.input, Zones_hardcodedData_Test.output);
 }
 
@@ -34,6 +34,7 @@ function build_ZonesNDVI(DataJson, ResultJson) {
     }
 
     var currentLang = data.Language;
+    console.log(currentLang)
 
     var docName = '' + data.Title + " - " + data.Field;
     var docFileID = createFile(docName, conf.objSet.strDestFolder, conf.objSet.strTemplateID);

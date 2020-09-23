@@ -1,6 +1,6 @@
 function test_build_Recorridos() {
     var debugMode = true;
-    build_Recorridos(recorridosConfig.hardcodedData3, debugMode);
+    build_Recorridos(recorridosConfig.hardcodedData2, debugMode);
 }
 
 function do_report_Recorridos(inputJson, outputJson) {
