@@ -434,8 +434,12 @@ var Zones_hardcodedData_Test = {
     "IndexType": "NDRE"
   },
   "output": {
-  "URLThumb1": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/ba3b0fe7edc5c9182b62a899c8949762-8df8d68a0f590427598490e2fd7f1d1b:getPixels",
-  "URLThumb2": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/682f60c774511533134ed0cb55673ce1-cb2d39a26cdc3cf383327cef22557966:getPixels",
+  
+        "URLThumb1": "https://cdn.croptrust.org/wp/wp-content/themes/croptrust/assets/background-video/01/background_placeholder.jpg",
+        "URLThumb2": "https://cdn.croptrust.org/wp/wp-content/themes/croptrust/assets/background-video/01/background_placeholdesr.jpg",
+  
+//  "URLThumb1": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/ba3b0fe7edc5c9182b62a899c8949762-8df8d68a0f590427598490e2fd7f1d1b:getPixels",
+//  "URLThumb2": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/682f60c774511533134ed0cb55673ce1-cb2d39a26cdc3cf383327cef22557966:getPixels",
   "Classes": [
     {
       "name": "0",

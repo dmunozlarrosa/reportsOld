@@ -10,7 +10,14 @@ function test_build_ZonesNDVI() {
 //    zonesConfig.hardcodedData = hardcodedData_ZonasRangos
     //zonesConfig.hardcodedData = hardcodedData_ZonasQuantiles  //falta definir
     //zonesConfig.hardcodedData = hardcodedData_ZonasClusters;
-    build_ZonesNDVI(Zones_hardcodedData_Test.input, Zones_hardcodedData_Test.output);
+    try{
+      build_ZonesNDVI(Zones_hardcodedData_Test.input, Zones_hardcodedData_Test.output);
+      console.log("success...")
+    }
+    catch(e){
+      console.log(e)
+      throw(e);
+    }
 }
 
 function do_report_ZonesNDVI(DataJson, ResultJson) {
@@ -122,8 +129,14 @@ function chartBuilderZones(classes, currentLang, index) {
     var chart = sh.getCharts()[0];
     sh.updateChart(chart);
     SpreadsheetApp.flush();
-
-    var image = loadImageWithTryNew(confChart.refreshedChartsUrl[classes.length - 2]);
+    
+    var image;
+    try{
+      var image = loadImageWithTryNew(confChart.refreshedChartsUrl[classes.length - 2]);
+    }
+    catch(e){
+      console.log(" Line 134: chartBulderZones error: " + e)
+    }
 
     return image
 }
@@ -133,8 +146,6 @@ function rpt_ZonasNDVI_setImages(body, result, currentLang) {
     var imgCellWidth = 600;
 
     for (var i = 0; i < 3; ++i) {
-
-        var image = '';
         var table = body.getTables()[0];
 
         var imgWidth = 0.95 * imgCellWidth;
@@ -164,54 +175,69 @@ function rpt_ZonasNDVI_setImages(body, result, currentLang) {
         paragraph.setAttributes(style);
 
         if (imageURL != null && imageURL != 'null') {
-
-            image = loadImageWithTryNew(imageURL);
-
-            if (image != null) {
-                var blob = image.getBlob();
-                var img = paragraph.appendInlineImage(blob);
-
-                var height = img.getHeight();
-                var width = img.getWidth();
-                var rep = height / width;
-
-                var wideImg = false;
-                if (rep <= 1) {
-                    wideImg = true;
-                }
-
-                if (wideImg) {
-                    img.setWidth(imgWidth);
-                    height = imgWidth * rep;
-                    if (height > imgHeight) {
-                        img.setHeight(imgHeight);
-                        width = imgHeight / rep;
-                        img.setWidth(width);
-                    }
-                    else
-                        img.setHeight(height);
-                } else {
-                    img.setHeight(imgHeight);
-                    width = imgHeight / rep;
-                    if (width > imgWidth) {
-                        img.setWidth(imgWidth);
-                        height = imgWidth * rep;
-                        img.setHeight(height);
-                    }
-                    else
-                        img.setWidth(width);
-                }
-                var styles = {};
-              if (i == 2) {
-                styles[DocumentApp.Attribute.VERTICAL_ALIGNMENT] = DocumentApp.VerticalAlignment.TOP;
-              } else {
-                styles[DocumentApp.Attribute.VERTICAL_ALIGNMENT] = DocumentApp.VerticalAlignment.CENTER;
-              }
-              styles[DocumentApp.Attribute.HORIZONTAL_ALIGNMENT] = DocumentApp.HorizontalAlignment.CENTER;
-              img.getParent().setAttributes(styles);
-            }
+          rpt_ZonasNDVI_setImage(imageURL, paragraph, imgWidth, imgHeight, i);
         }
     }
+    
+}
+
+function rpt_ZonasNDVI_setImage(imageURL, paragraph, imgWidth, imgHeight, i, count){
+  try{
+    if (count === undefined) count = 0
+    console.log("rpt_ZonasNDVI_setImage")
+    var image = loadImageWithTryNew(imageURL);
+    if (image === null) throw("error on image: " + imageUrl)
+    
+    blob = image.getBlob();
+    var img = paragraph.appendInlineImage(blob);
+    var height = img.getHeight();
+    var width = img.getWidth();
+    var rep = height / width;  
+    var wideImg = false;
+    if (rep <= 1) {
+      wideImg = true;
+    }
+    
+    if (wideImg) {
+      img.setWidth(imgWidth);
+      height = imgWidth * rep;
+      if (height > imgHeight) {
+        img.setHeight(imgHeight);
+        width = imgHeight / rep;
+        img.setWidth(width);
+      }
+      else
+        img.setHeight(height);
+    } else {
+      img.setHeight(imgHeight);
+      width = imgHeight / rep;
+      if (width > imgWidth) {
+        img.setWidth(imgWidth);
+        height = imgWidth * rep;
+        img.setHeight(height);
+      }
+      else
+        img.setWidth(width);
+    }
+    var styles = {};
+    if (i == 2) {
+      styles[DocumentApp.Attribute.VERTICAL_ALIGNMENT] = DocumentApp.VerticalAlignment.TOP;
+    } else {
+      styles[DocumentApp.Attribute.VERTICAL_ALIGNMENT] = DocumentApp.VerticalAlignment.CENTER;
+    }
+    styles[DocumentApp.Attribute.HORIZONTAL_ALIGNMENT] = DocumentApp.HorizontalAlignment.CENTER;
+    img.getParent().setAttributes(styles);
+    return false;
+  }
+  catch (e){
+    console.log("[" + count + "/2] Error on setting images rpt_ZonasNDVI_setImages: " + e)
+    if(count < 2){
+      console.log("retrying...") 
+      count = count +1;
+      rpt_ZonasNDVI_setImage(imageURL, paragraph, imgWidth, imgHeight, i, count)
+    }
+    throw("Error on ImageURL: " +imageURL)
+  }  
 }
 
 function rpt_ZonasNDVI_setTableNdviClasification(body, result, currentLang) {
