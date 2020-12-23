@@ -74,7 +74,7 @@ function build_TasaDeCambio(InputJson, OutputJson, debugMode) {
   body.replaceText('{Establecimiento}', inputD.Farm);
   body.replaceText('{Lote}', inputD.Field);
   body.replaceText('{Cultivo}', inputD.Crop);
-  body.replaceText('{Híbrido}', inputD.Hybrid);
+  body.replaceText('{Hibrido}', inputD.Hybrid);
   
   var fs = inputD.DatePlanting
   var noD = '';

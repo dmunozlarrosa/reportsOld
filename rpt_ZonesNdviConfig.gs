@@ -591,7 +591,7 @@ var hardocode_ZonesTest2 = {
     "Farm": "Don Pancho",
     "Season": "2020-21",
     "Crop": "Soja",
-    "DatePlanting": "2018-10-01",
+    "DatePlanting": "",
     "Hybrid": "DM 46R18STS",
     "Field": "4",
     "Method": "Cuantiles",
@@ -601,8 +601,8 @@ var hardocode_ZonesTest2 = {
     "IndexType": "NDVI"
   },
   output : {
-    "URLThumb1": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/04955d55a5d13b62dbc0222b3a8ab77c-cb457af151951cdd34221c6f66d56b79:getPixels",
-    "URLThumb2": "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/thumbnails/de5cc02cf91c2b0efa749fa03ad1cbdc-746a2ea11f71ca0fc50a253b51bb0255:getPixels",
+    "URLThumb1": "https://image.shutterstock.com/image-photo/soybean-field-ripening-spring-season-260nw-299275802.jpg",
+    "URLThumb2": "https://image.shutterstock.com/image-photo/soybean-field-ripening-spring-season-260nw-299275802.jpg",
     "Classes": [
       {
         "name": "0",

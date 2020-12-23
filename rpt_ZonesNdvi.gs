@@ -75,8 +75,10 @@ function build_ZonesNDVI(DataJson, ResultJson) {
   body.replaceText('{IndexType}', data.IndexType);
   body.replaceText('{Clusters}', 'Clusters: ' + zonesPrivateAtributes._classesLen);
   body.replaceText('{FechaSiembra}', getStandardizedDateFormat(data.DatePlanting));
-  body.replaceText('{noDays}', getDaysDiference(data.DatePlanting, data.Date) );
-  
+  if(data.DatePlanting.toString().length >2)
+    body.replaceText('{noDays}', getDaysDiference(data.DatePlanting, data.Date) );
+  else 
+    body.replaceText('{noDays}', "-" );
   
   setIndexSimbologies(body, data.IndexType.toString().toLowerCase(), '{imgSimb}');
 
