@@ -16,11 +16,8 @@ function build_SeriesThumbs(InputJson, debugMode) {
   }
   
   var lang = 'EN';
-  var isEnglish = true;
-  if (inputD.Language.toUpperCase() == 'ES'){
-    lang = 'ES';
-    isEnglish = false;
-  }
+  if (inputD.Language.toUpperCase() == 'ES' || inputD.Language.toUpperCase() == 'PT')
+    lang = inputD.Language.toUpperCase();
 
   var docName = inputD.Title + " - " + inputD.Farm + " - " + inputD.Season;
   var fImData = rpt_SeriesThumbs_getFImData(inputD.DatesImages);
@@ -188,17 +185,23 @@ function build_SeriesThumbs(InputJson, debugMode) {
   // ### Save and close document, return URL ###
 
   body.replaceText('{dateStamp}', getStandardizedDateFormat(Utilities.formatDate(new Date(), "GMT+1", "yyyy/MM/dd")));
-  if (isEnglish) {
+  if (lang == "EN") {
     var titleF = inputD.Title + ' - Field';
     body.replaceText('{Titulo}', '' + titleF);
     for (var i = 0; i < seriesThumbsConfig.arrFixedTranslation.length; i++) {
       body.replaceText(seriesThumbsConfig.arrFixedTranslation[i][0], seriesThumbsConfig.arrFixedTranslation[i][2]);
     }
-  } else {
+  } else if (lang == "ES") {
     var titleF = inputD.Title + ' - Lote';
     body.replaceText('{Titulo}', '' + titleF);
     for (var i = 0; i < seriesThumbsConfig.arrFixedTranslation.length; i++) {
       body.replaceText(seriesThumbsConfig.arrFixedTranslation[i][0], seriesThumbsConfig.arrFixedTranslation[i][1]);
+    }
+  } else if (lang == "PT") {
+    var titleF = inputD.Title + ' - Lote';
+    body.replaceText('{Titulo}', '' + titleF);
+    for (var i = 0; i < seriesThumbsConfig.arrFixedTranslation.length; i++) {
+      body.replaceText(seriesThumbsConfig.arrFixedTranslation[i][0], seriesThumbsConfig.arrFixedTranslation[i][3]);
     }
   }
 
@@ -225,8 +228,8 @@ function rpt_SeriesThumbs_setCharts(body, seriesChart, ddsChart, lang){
   setImagesTablesByCell(ddsChart, seriesThumbsConfig.chartsSizes.widht, seriesThumbsConfig.chartsSizes.high, newTable, 1, 0);
   }else{
     var textFlag = 'If you want to generate the index chart by DAS (Days After Seeding) you need to complete the Seeding date as part of the Field information.'
-    if(lang == 'ES')
-      textFlag = ' Si usted quiere generar el gráfico de índice por DDS (Días Después de la Siembra) es necesario que complete la fecha de siembra como parte de la información del Lote.'
+    if(lang == 'ES') textFlag = ' Si usted quiere generar el gráfico de índice por DDS (Días Después de la Siembra) es necesario que complete la fecha de siembra como parte de la información del Lote.';
+    if(lang == 'PT') textFlag = ' Se quiser gerar o gráfico de índice por DPP (Dias Posteriores ao Plantio) é preciso completar a data de plantio como parte da informação do lote';
     newTable.getCell(1, 0).editAsText().appendText(textFlag);
     var paragraph = newTable.getCell(1, 0).getChild(0).asParagraph();
     var textFlagStyle = {};
